@@ -1,0 +1,127 @@
+.campaign-page {
+  width: min(100% - 48px, 1440px);
+  margin: 0 auto;
+  padding: 48px 0 64px;
+  color: #202b3f;
+}
+
+.campaign-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.campaign-page__header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.campaign-page__header p {
+  margin: 0;
+  color: #8992a3;
+  font-size: 14px;
+}
+
+.campaign-page__create-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border: 1px solid #5145cd;
+  border-radius: 8px;
+  background: #5145cd;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.campaign-page__create-button:hover {
+  background: #4035b5;
+}
+
+.campaign-page__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  padding: 22px 24px;
+  background: #ffffff;
+  border: 1px solid #e6e9f0;
+  border-radius: 12px;
+}
+
+.stat-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: #8992a3;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.stat-card strong {
+  color: #202b3f;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.campaign-section {
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e6e9f0;
+  border-radius: 14px;
+}
+
+.campaign-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.campaign-section__header h2 {
+  margin: 0;
+  color: #202b3f;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.campaign-section__header span {
+  color: #8992a3;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .campaign-page {
+    width: calc(100% - 32px);
+    padding: 32px 0;
+  }
+
+  .campaign-page__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campaign-page__stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .campaign-section {
+    padding: 16px;
+  }
+
+  .campaign-table th,
+  .campaign-table td {
+    padding: 14px;
+  }
+}

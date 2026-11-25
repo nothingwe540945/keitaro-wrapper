@@ -1,0 +1,519 @@
+/* Основной контейнер редактора */
+.campaign-editor {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fb;
+  color: #1e293b;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* Ссылка возврата */
+.campaign-editor__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.campaign-editor__back:hover {
+  color: #4f46e5;
+}
+
+/* Шапка редактора */
+.campaign-editor__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.campaign-editor__header h1 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.campaign-editor__header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.campaign-editor__id {
+  padding: 9px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Общие карточки */
+.campaign-editor__content {
+  margin-bottom: 24px;
+  padding: 26px;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(15 23 42 / 4%);
+}
+
+.campaign-editor__content > h2 {
+  margin: 0 0 22px;
+  color: #0f172a;
+  font-size: 19px;
+  font-weight: 650;
+}
+
+/* Информация о компании */
+.campaign-editor__details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.campaign-editor__details p {
+  margin: 0;
+  padding: 15px 16px;
+  border: 1px solid #edf0f5;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.campaign-editor__details strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Список потоков */
+.campaign-editor__streams {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.campaign-editor__stream {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.campaign-editor__stream h3 {
+  margin: 0 0 18px;
+  color: #1e293b;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.campaign-editor__stream > p {
+  margin: 8px 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.campaign-editor__stream strong {
+  color: #334155;
+  font-size: 13px;
+}
+
+/* Фильтры */
+.campaign-editor__filters > p {
+  margin: 10px 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Блок офферов */
+.campaign-editor__offers-panel {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #e5eaf1;
+  border-radius: 10px;
+  background: #fff;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Жёлтая подсветка при несохранённых изменениях */
+.campaign-editor__offers-panel--dirty {
+  border-color: #f0d77a;
+  background: #fffbea;
+}
+
+.campaign-editor__offers-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.campaign-editor__dirty-label {
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: #fff0b8;
+  color: #946200;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Общая доля */
+.campaign-editor__share-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 11px 12px;
+  border-radius: 8px;
+  background: rgb(255 255 255 / 75%);
+  color: #64748b;
+  font-size: 13px;
+}
+
+.campaign-editor__share-valid {
+  color: #15803d !important;
+}
+
+.campaign-editor__share-invalid {
+  color: #dc2626 !important;
+}
+
+.campaign-editor__empty {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Список офферов */
+.campaign-editor__offer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campaign-editor__offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border: 1px solid #e5eaf1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.campaign-editor__offer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.campaign-editor__offer-info strong {
+  overflow: hidden;
+  color: #334155;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campaign-editor__offer-info span {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.campaign-editor__offer-info .campaign-editor__removed {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.campaign-editor__offer--disabled {
+  border-color: #e5e7eb;
+  background: #f1f2f4;
+  opacity: 0.75;
+}
+
+.campaign-editor__offer--disabled .campaign-editor__offer-info strong {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/* Поле доли */
+.campaign-editor__share-field {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.campaign-editor__share-field input {
+  width: 58px;
+  min-width: 0;
+  padding: 7px 5px;
+  border: 1px solid #dbe2ec;
+  border-radius: 6px;
+  outline: none;
+  color: #1e293b;
+  font-size: 13px;
+  text-align: center;
+}
+
+.campaign-editor__share-field input:focus {
+  border-color: #6366f1;
+}
+
+.campaign-editor__share-field input:disabled {
+  background: #e5e7eb;
+  color: #94a3b8;
+}
+
+/* Кнопки */
+.campaign-editor button {
+  padding: 9px 14px;
+  border: none;
+  border-radius: 7px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.campaign-editor button:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.campaign-editor button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.campaign-editor button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Удаление и восстановление */
+.campaign-editor__remove-button {
+  background: #fff1f2 !important;
+  color: #e11d48 !important;
+}
+
+.campaign-editor__remove-button:hover:not(:disabled) {
+  background: #ffe4e6 !important;
+}
+
+.campaign-editor__restore-button {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+.campaign-editor__restore-button:hover:not(:disabled) {
+  background: #bbf7d0 !important;
+}
+
+/* Добавление оффера */
+.campaign-editor__add-offer {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #e5eaf1;
+}
+
+.campaign-editor__add-offer h4 {
+  margin: 0 0 12px;
+  color: #334155;
+  font-size: 14px;
+}
+
+.campaign-editor__search {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.campaign-editor__search > input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dbe2ec;
+  border-radius: 8px;
+  outline: none;
+  color: #1e293b;
+  font-size: 13px;
+}
+
+.campaign-editor__search > input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgb(99 102 241 / 12%);
+}
+
+/* Выпадающие результаты поиска */
+.campaign-editor__search-results {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 5px);
+  right: 0;
+  left: 0;
+  max-height: 230px;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgb(15 23 42 / 10%);
+}
+
+.campaign-editor__search-results button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 12px;
+  border-radius: 0;
+  background: #fff;
+  color: #334155;
+  text-align: left;
+}
+
+.campaign-editor__search-results button:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.campaign-editor__search-results button span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.campaign-editor__search-results button small {
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+.campaign-editor__search-results p {
+  margin: 0;
+  padding: 12px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.campaign-editor__add-offer > button {
+  margin-top: 10px;
+}
+
+.campaign-editor__error {
+  margin: 10px 0 0;
+  color: #e11d48;
+  font-size: 13px;
+}
+
+.campaign-editor__success {
+  margin: 12px 0 0;
+  color: #15803d;
+  font-size: 13px;
+}
+
+/* Кнопки отправки и отмены */
+.campaign-editor__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #eadfae;
+}
+
+.campaign-editor__push-button {
+  background: #15803d !important;
+}
+
+.campaign-editor__push-button:hover:not(:disabled) {
+  background: #166534 !important;
+}
+
+.campaign-editor__cancel-button {
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+.campaign-editor__cancel-button:hover:not(:disabled) {
+  background: #cbd5e1 !important;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+  .campaign-editor {
+    padding: 28px 20px;
+  }
+
+  .campaign-editor__streams {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .campaign-editor {
+    padding: 20px 14px;
+  }
+
+  .campaign-editor__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campaign-editor__header h1 {
+    font-size: 24px;
+  }
+
+  .campaign-editor__content {
+    padding: 18px;
+  }
+
+  .campaign-editor__details {
+    grid-template-columns: 1fr;
+  }
+
+  .campaign-editor__offer {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .campaign-editor__share-field {
+    grid-column: 1;
+  }
+
+  .campaign-editor__offer > button {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .campaign-editor__actions {
+    flex-direction: column;
+  }
+
+  .campaign-editor__actions button {
+    width: 100%;
+  }
+}
